@@ -38,7 +38,7 @@ generateEl.addEventListener("click", () => {
   if (
     lowerCheckBox.checked == false &&
     upperCheckBox.checked == false &&
-    upperCheckBox.checked == false &&
+    number.checked == false &&
     specialSign.checked == false
   ) {
     alert("Plese Check At least One Box.");
