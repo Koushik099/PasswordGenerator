@@ -57,12 +57,17 @@ generateEl.addEventListener("click", () => {
 function generatePassword(lower, upper, number, symbol, length) {
   let pass = lower + symbol + upper + number + symbol + lower + upper;
   //   console.log("length is ", length);
-  let returnPass = " ";
-  for (i = 0; i < length; i++) {
-    returnPass += pass[Math.floor(Math.random() * pass.length)];
+
+  if (length < 20 && length >= 4) {
+    let returnPass = " ";
+    for (i = 0; i < length; i++) {
+      returnPass += pass[Math.floor(Math.random() * pass.length)];
+    }
+    console.log(returnPass);
+    resultEl.textContent = returnPass;
+  } else {
+    alert("Password length Should be lessthan 20char or greaterthan 4char 😏");
   }
-  console.log(returnPass);
-  resultEl.textContent = returnPass;
 }
 
 function getRandomLower() {
