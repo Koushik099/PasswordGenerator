@@ -7,6 +7,11 @@ const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const clipboardEl = document.getElementById("clipboard");
 
+let lowerCheckBox = document.getElementById("lowercase");
+let upperCheckBox = document.getElementById("uppercase");
+let number = document.getElementById("numbers");
+let specialSign = document.getElementById("symbols");
+
 const randomFunc = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -30,13 +35,23 @@ clipboardEl.addEventListener("click", () => {
 });
 
 generateEl.addEventListener("click", () => {
-  generatePassword(
-    getRandomLower(),
-    getRandomUpper(),
-    getRandomNumber(),
-    getRandomSymbol(),
-    lengthEl.value
-  );
+  if (
+    lowerCheckBox.checked == false &&
+    upperCheckBox.checked == false &&
+    upperCheckBox.checked == false &&
+    specialSign.checked == false
+  ) {
+    alert("Plese Check At least One Box.");
+    resultEl.textContent = "";
+  } else {
+    generatePassword(
+      getRandomLower(),
+      getRandomUpper(),
+      getRandomNumber(),
+      getRandomSymbol(),
+      lengthEl.value
+    );
+  }
 });
 
 function generatePassword(lower, upper, number, symbol, length) {
@@ -51,7 +66,6 @@ function generatePassword(lower, upper, number, symbol, length) {
 }
 
 function getRandomLower() {
-  let lowerCheckBox = document.getElementById("lowercase");
   if (lowerCheckBox.checked == true) {
     let lower = "abcdefghijklmnopqrstuvwxyz";
 
@@ -68,7 +82,6 @@ function getRandomLower() {
 }
 
 function getRandomUpper() {
-  let upperCheckBox = document.getElementById("uppercase");
   if (upperCheckBox.checked == true) {
     let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let returnValue = "A";
@@ -84,7 +97,6 @@ function getRandomUpper() {
 }
 
 function getRandomNumber() {
-  let number = document.getElementById("numbers");
   if (number.checked == true) {
     let random = 1;
     for (let i = 0; i < 6; i++) {
@@ -99,7 +111,6 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-  let specialSign = document.getElementById("symbols");
   if (specialSign.checked) {
     let symbols = "!@#$%&*";
     let symbol = "@";
