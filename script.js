@@ -58,7 +58,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   let pass = lower + symbol + upper + number + symbol + lower + upper;
   //   console.log("length is ", length);
 
-  if (length < 20 && length >= 4) {
+  if (length <= 20 && length >= 4) {
     let returnPass = " ";
     for (i = 0; i < length; i++) {
       returnPass += pass[Math.floor(Math.random() * pass.length)];
