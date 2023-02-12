@@ -22,6 +22,7 @@ const randomFunc = {
 clipboardEl.addEventListener("click", () => {
   let createInput = document.createElement("input");
   createInput.value = resultEl.textContent;
+  if (!createInput.value) return;
 
   // Select the text field
   createInput.select();
@@ -63,7 +64,7 @@ function generatePassword(lower, upper, number, symbol, length) {
     for (i = 0; i < length; i++) {
       returnPass += pass[Math.floor(Math.random() * pass.length)];
     }
-    console.log(returnPass);
+    // console.log(returnPass);
     resultEl.textContent = returnPass;
   } else {
     alert("Password length Should be lessthan 20char or greaterthan 4char 😏");
